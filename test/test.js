@@ -1,8 +1,16 @@
 
-import * as Slide from '../slide63';
+// var jsdom = require('jsdom');
+// const { JSDOM } = jsdom;
+// const { window } = new JSDOM();
+// const { document } = (new JSDOM('')).window;
+// global.document = document;
 
-var assert = require('chai').assert;
+// global.$ = global.jquery = require('jquery')(window);
 
+// console.log(Slide)
+// var border_turns_yellow = Slide.border_turns_yellow;
+// var chai = require("chai");
+var assert = chai.assert;
 
 describe("Matching", function() {
   var array_of_ids = [1,2,3,4,5];
@@ -15,10 +23,10 @@ describe("Matching", function() {
       it(`turns the border color of id ${x} image to yellow if it is the only one`, function() {
           console.log(matched, x);
           if (matched[x] == true){
-            assert.equal(Slide.border_turns_yellow(x, others, matched), "rgb(124,252,0)");
+            assert.equal(border_turns_yellow(x, others, matched), "rgb(124,252,0)");
           }
           else{
-            assert.equal(Slide.border_turns_yellow(x, others, matched), "yellow");
+            assert.equal(border_turns_yellow(x, others, matched), "yellow");
           }
         
       });
@@ -33,11 +41,18 @@ describe("Matching", function() {
     }
   });
   
-  describe("Select two images", function() {
-    it("the borders turn green for two matching images", function (){
+  // describe("Select two images", function() {
+  //   before(function() {
+  //     var questions = $(".row-1").children();
+  //     var anwers = $(".row-2").children();
+  //     questions.css("border-color", "red")
+  //     console.log(questions.css("border-color")=="red");
+  //   });
+    
+  //   it("the borders turn green for two matching images", function (){
       
-    })
-  })
+  //   })
+  // })
   
   
 });  

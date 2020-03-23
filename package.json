@@ -7,7 +7,7 @@
     "test": "test"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha"
   },
   "repository": {
     "type": "git",
@@ -21,6 +21,8 @@
   "homepage": "https://github.com/chioujiin/slide63#readme",
   "dependencies": {
     "chai": "^4.2.0",
+    "jquery": "^3.4.1",
+    "jsdom": "^16.2.1",
     "mocha": "^7.1.1"
   }
 }
