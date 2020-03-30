@@ -1,10 +1,6 @@
   describe("border_turns_yellow", function() {
 
-    function makeTest(x, matched) {
-        array_of_ids = [1,2,3,4,5];
-        valueToRemove = x;
-        others = array_of_ids.filter(array_of_ids => array_of_ids !== valueToRemove);
-        
+    function makeTest(x, others, matched) {        
       it(`turns the border color of id ${x} image to yellow if it is the only one`, function() {
           console.log(matched, x);
           if (matched[x] == true){
@@ -22,7 +18,20 @@
       for (let i = 1;i<=5;i++) {
         matched[i] = Math.round(Math.random());
       }
-      makeTest(x, matched);
+      array_of_ids = [1,2,3,4,5];
+      valueToRemove = x;
+      for (let i = 1;i<=5;i++) {
+        if(i==x){
+          continue;
+        }
+        else{
+          if(Math.random()>0.5){
+            others.push(i);
+          }
+        }
+      }
+
+      makeTest(x, others, matched);
     }
   
 });
