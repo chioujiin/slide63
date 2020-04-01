@@ -1,18 +1,26 @@
-function border_turns_yellow(id, clicked, matched) { 
-  if(matched[id] == true){
-    return
+function Matching(id, clicked, matched){
+  // border_turns_yellow
+  if(clicked.length==0 || clicked[0] == id){
+    border_turns_yellow(id, clicked);
   }
-  else if(clicked.length>0){          
-    if(check_if_match(id)){
-      // matching()
-    }
-    else{            
-        // border_turns_red()
-    }
-  }
-  else{
+}
+
+
+function border_turns_yellow(id, clicked) { 
+  console.log(id, clicked)
+  if(clicked.length==0){
     $(id).css('border-color', 'yellow');
     clicked.push(id);
+    // return "yellow"
+  }
+  else if(clicked[0] == id){
+    $(clicked[0]).css('border-color', 'black');
+    clicked.pop();
+    // return "black"
+  }
+  else{
+    // border_turns_red()
+    // return "red"
   }
 }
 
