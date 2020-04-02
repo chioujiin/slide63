@@ -15,33 +15,29 @@ var assert = chai.assert;
 
 describe("Matching", function() {
   var array_of_ids = [1,2,3,4,5];
+  
   describe("border_turns_yellow", function() {
-
-    function makeTest(x, matched) {
-        var valueToRemove = x;
-        var others = array_of_ids.filter(array_of_ids => array_of_ids !== valueToRemove);
-        
-      it(`turns the border color of id ${x} image to yellow if it is the only one`, function() {
-          console.log(matched, x);
-          if (matched[x] == true){
-            assert.equal(border_turns_yellow(x, others, matched), "rgb(124,252,0)");
+    function makeTest(x, clicked) {        
+      it(`turns the border color to yellow if it is the only one`, function() {
+          if(clicked.length==0){
+            assert.equal(border_turns_yellow(x, clicked), "yellow"); 
           }
-          else{
-            assert.equal(border_turns_yellow(x, others, matched), "yellow");
-            expect(1).to.eq(3);
+          else if(x == clicked[0]){ 
+            assert.equal(border_turns_yellow(x, clicked), "black"); 
           }
-        
+          else if (x != clicked[0]){
+            assert.equal(border_turns_yellow(x, clicked), "red"); 
+          }
       });
     }
 
     for (let x = 1; x <= 5; x++) {
-      var matched = {}
-      for (let i = 1;i<=5;i++) {
-        matched[i] = Math.round(Math.random());
-      }
-      makeTest(x, matched);
+      clicked =  [];
+      if(Math.random()>0.5){ clicked.push(Math.floor(Math.random()*5)+1); }
+      makeTest(x, clicked);
     }
-  });
+});
+
   
   // describe("Select two images", function() {
   //   before(function() {
@@ -58,4 +54,7 @@ describe("Matching", function() {
   
   
 });  
+
+
+
 
