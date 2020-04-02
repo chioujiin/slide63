@@ -1,15 +1,16 @@
 
-// var jsdom = require('jsdom');
-// const { JSDOM } = jsdom;
-// const { window } = new JSDOM();
-// const { document } = (new JSDOM('')).window;
-// global.document = document;
+var jsdom = require('jsdom');
+const { JSDOM } = jsdom;
+const { window } = new JSDOM();
+const { document } = (new JSDOM('')).window;
+global.document = document;
 
-// global.$ = global.jquery = require('jquery')(window);
+global.$ = global.jquery = require('jquery')(window);
 
 // console.log(Slide)
-// var border_turns_yellow = Slide.border_turns_yellow;
-// var chai = require("chai");
+var Slide = require('./../my_modules/utils.js');
+var border_turns_yellow = Slide.border_turns_yellow;
+var chai = require("chai");
 var assert = chai.assert;
 
 describe("Matching", function() {
@@ -27,6 +28,7 @@ describe("Matching", function() {
           }
           else{
             assert.equal(border_turns_yellow(x, others, matched), "yellow");
+            expect(1).to.eq(3);
           }
         
       });
