@@ -32,6 +32,7 @@ function Matching(ele, clicked, matched) {
   }
 }
 
+// check if the image is at the same row of the clicked image
 function check_if_same_row(ele, clicked) {
   var clicked_item = clicked[0];
   var clicked_parent = $(clicked_item).parent();
@@ -40,11 +41,13 @@ function check_if_same_row(ele, clicked) {
   return $(clicked_parent).attr("class") == $(ele_parent).attr("class");
 }
 
+// check if the image has same id as the clicked image
 function check_if_match(ele, clicked){ 
   var clicked_item = clicked[0];
   return $(clicked_item).attr("id") == $(ele).attr("id");
 }
 
+// check if the image is already matched
 function check_if_matched(ele, matched) {
   var id = $(ele).attr("id");
   return matched.hasOwnProperty(id) && matched[id];
@@ -56,7 +59,7 @@ function border_turns_yellow(id) {
 
 // when images match, call this function for border changes
 function border_turns_green(id){
-  $(id).css('border-color', 'rgb(124,252,0)');
+  $(id).css('border-color', 'rgb(124, 252, 0)');
 }
 
 // when images doesn't match, call this function for border changes
