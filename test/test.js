@@ -25,9 +25,6 @@ describe("Matching", function() {
           else if(x == clicked[0]){ 
             assert.equal(border_turns_yellow(x, clicked), "black"); 
           }
-          else if (x != clicked[0]){
-            assert.equal(border_turns_yellow(x, clicked), "red"); 
-          }
       });
     }
 
@@ -36,7 +33,21 @@ describe("Matching", function() {
       if(Math.random()>0.5){ clicked.push(Math.floor(Math.random()*5)+1); }
       makeTest(x, clicked);
     }
-});
+  });
+
+  describe("border_turns_red", function() {
+    function makeTest(x, clicked) {        
+      it(`turns both border color to red`, function() {
+          if(x != clicked){ assert.equal(border_turns_red(x, clicked), "red"); }
+      });
+    }
+
+    for (let x = 1; x <= 5; x++) {
+      clicked =  [];
+      clicked.push(Math.floor(Math.random()*5)+1);
+      makeTest(x, clicked);
+    }
+  });
 
   
   // describe("Select two images", function() {
