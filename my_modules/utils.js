@@ -27,8 +27,13 @@ function Matching(ele, clicked, matched) {
   }
   else{
     // click one image
-    border_turns_yellow(ele, clicked);
-    clicked.push(ele);
+    if($(ele).css("border-color") != 'rgb(255, 0, 0)'){
+      border_turns_yellow(ele, clicked);
+      clicked.push(ele);
+    }
+    else{
+      return 
+    }
   }
 }
 
@@ -65,6 +70,10 @@ function border_turns_green(id){
 // when images doesn't match, call this function for border changes
 function border_turns_red(id){
   $(id).css('border-color', 'red');
+  setTimeout(function(){
+    $(id).css('border-color', 'black'); 
+
+  }, 850);
 }
 
 function border_turns_black(id){
