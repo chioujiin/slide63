@@ -73,7 +73,7 @@ function border_turns_red(id){
   setTimeout(function(){
     $(id).css('border-color', 'black'); 
 
-  }, 850);
+  }, 1000);
 }
 
 function border_turns_black(id){
