@@ -23,7 +23,7 @@ function Matching(ele, clicked, matched, error) {
       // not matching    
       border_turns_red(ele);
       border_turns_red(clicked[0]);
-      slide_name = [get_slide_name(ele), get_slide_name(clicked[0])];
+      let slide_name = [get_slide_name(ele), get_slide_name(clicked[0])];
       store_error(error, ele, clicked[0]);
       store_error(error, clicked[0], ele);
       $("#Hint").text(`Hint:  Look at the slide on ${slide_name[0]}, and ${slide_name[1]}`);
