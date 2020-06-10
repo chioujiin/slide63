@@ -21,7 +21,7 @@
   "homepage": "https://github.com/chioujiin/slide63#readme",
   "dependencies": {
     "chai": "^4.2.0",
-    "jquery": "^3.4.1",
+    "jquery": "^3.5.0",
     "jsdom": "^16.2.1",
     "mocha": "^7.1.1"
   }
